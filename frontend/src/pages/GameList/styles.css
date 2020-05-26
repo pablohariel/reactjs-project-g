@@ -1,0 +1,82 @@
+body {
+    background-color: #000;
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    background-image: url('../../assets/background_img.png');
+    background-repeat: no-repeat;
+}
+
+main .border-first {
+    display: flex;
+    justify-content: space-between;
+    width: 72%;
+    border-bottom: 1px solid #000;
+    align-self: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+main .border-first input {
+    border: none;
+    width: 80px;
+    background-color: transparent;
+}
+
+main .border-first .search {
+    display: flex;
+}
+
+main .border-first .search button {
+    border: none;
+    background-color: transparent;
+    padding: 2px;
+    transition: 0.2s;
+
+}
+
+main .border-first .search button:hover {
+    color: rgb(150, 150, 150);
+}
+
+.games-container {
+    width: 72%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+}
+
+.games-container ul {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.games-container ul li {
+    margin: 10px;
+}
+
+.games-container ul li:hover {
+    opacity: 0.9;
+}
+
+.games-container ul li img{
+    width: 170px;
+    height: 240px;
+}
+
+.footer {
+    height: 140px;
+    width: 100%;
+    margin-top: 140px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: #fff;
+    align-items: center;
+}

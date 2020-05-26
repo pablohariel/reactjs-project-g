@@ -1,0 +1,26 @@
+
+
+.header-container .header-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    font-weight: bold;
+}
+
+.header-container .header-links li{
+    margin: 10px;
+}
+
+.header-container .header-links li a {
+    color: #000;
+    transition: 0.2s;
+}
+
+.header-container .header-links li a:hover {
+    color: rgb(86, 87, 88);
+}
+
+.header-container .header-links img {
+    width: 100px;
+}
