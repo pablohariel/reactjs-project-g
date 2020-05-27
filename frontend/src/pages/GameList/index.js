@@ -10,8 +10,14 @@ export default function GameList() {
     const [games, setGames] = useState([]);
     
     useEffect(() => {
-        api.get('games').then(response => {
-            setGames(response.data);
+        const filteredGames = [];
+        api.get('games?sort_by=releasedate&limit=30').then(response => {
+            response.data.map(game => {
+                if(game.imagePoster && filteredGames.length < 15) {
+                    filteredGames.push(game);
+                }
+            })
+            setGames(filteredGames);
         })
     }, []);
 
@@ -57,14 +63,14 @@ export default function GameList() {
                     <li><a href="https//:www.google.com"><img src="https://b2.crackwatch.com/file/crackwatch-temp/fnppp2ys0.jpg" title="Game name" /></a></li>
                     <li><a href="https//:www.google.com"><img src="https://b2.crackwatch.com/file/crackwatch-temp/776v8zv05.jpg" title="Game name" /></a></li>
                     <li><a href="https//:www.google.com"><img src="https://b2.crackwatch.com/file/crackwatch-temp/pbqb6wqfx.jpg" title="Game name" /></a></li>
-                    {games.map(game => (
-                        <li>
-                            <a href={game.link_steam}><img src={game.img_url} title={game.title} /></a>
-                            {/* <button onClick={() => handleDeleteGame(game.id)} type="button">
+                    {/* {games.map(game => (    
+                        <li> */}
+                            {/* <a href={game.url}><img src={game.imagePoster} title={game.title} /></a>
+                            <button onClick={() => handleDeleteGame(game.id)} type="button">
                                 Delete
                             </button> */}
-                        </li>
-                    ))}
+                        {/* </li>
+                    ))} */}
                 </ul>
             </div>
             <div className="footer">
