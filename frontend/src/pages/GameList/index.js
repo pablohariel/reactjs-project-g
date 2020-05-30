@@ -17,9 +17,15 @@ export default function GameList() {
     
     useEffect(() => {
         const filteredGames = [];
+        var maxGames = 0;
+        if(isDesktopOrLaptop) {
+            maxGames = 15;
+        } else {
+            maxGames = 4;
+        }
         api.get('games?sort_by=releasedate&limit=30').then(response => {
             response.data.map(game => {
-                if(game.imagePoster && filteredGames.length < 15) {
+                if(game.imagePoster && filteredGames.length < maxGames) {
                     filteredGames.push(game);
                 }
             })
@@ -39,7 +45,7 @@ export default function GameList() {
     return (
         <main>
             <Header />
-            <div className="border-first">
+            <div className={isDesktopOrLaptop ? "border-first" : "border-first-mobile"}>
                 <p>Last games</p>
                 
                 <div className="search">
@@ -50,7 +56,8 @@ export default function GameList() {
                 </div>
                 
             </div>
-            <div className="games-container">
+            <div className={isDesktopOrLaptop ? "games-container" : "games-container-mobile"}>
+                {isDesktopOrLaptop ? 
                 <ul>
                     <li><a href="https//:www.google.com"><img src="https://b2.crackwatch.com/file/crackwatch-temp/9egutdn4h.jpg" title="Game name" /></a></li>
                     <li><a href="https//:www.google.com"><img src="https://b2.crackwatch.com/file/crackwatch-temp/crqp650s4.jpg" title="Game name" /></a></li>
@@ -69,15 +76,21 @@ export default function GameList() {
                     <li><a href="https//:www.google.com"><img src="https://b2.crackwatch.com/file/crackwatch-temp/fnppp2ys0.jpg" title="Game name" /></a></li>
                     <li><a href="https//:www.google.com"><img src="https://b2.crackwatch.com/file/crackwatch-temp/776v8zv05.jpg" title="Game name" /></a></li>
                     <li><a href="https//:www.google.com"><img src="https://b2.crackwatch.com/file/crackwatch-temp/pbqb6wqfx.jpg" title="Game name" /></a></li>
-                    {/* {games.map(game => (    
-                        <li> */}
-                            {/* <a href={game.url}><img src={game.imagePoster} title={game.title} /></a>
-                            <button onClick={() => handleDeleteGame(game.id)} type="button">
-                                Delete
-                            </button> */}
-                        {/* </li>
-                    ))} */}
-                </ul>
+                   
+                    
+                </ul> :
+                <ul>
+                    <li><a href="https//:www.google.com"><img src="https://b2.crackwatch.com/file/crackwatch-temp/9egutdn4h.jpg" title="Game name" /></a></li>
+                    <li><a href="https//:www.google.com"><img src="https://b2.crackwatch.com/file/crackwatch-temp/crqp650s4.jpg" title="Game name" /></a></li>
+                    <li><a href="https//:www.google.com"><img src="https://b2.crackwatch.com/file/crackwatch-temp/yjl7yme7m.jpg" title="Game name" /></a></li>
+                    <li><a href="https//:www.google.com"><img src="https://b2.crackwatch.com/file/crackwatch-temp/p220ch08i.jpg" title="Game name" /></a></li>
+                    <li><a href="https//:www.google.com"><img src="https://b2.crackwatch.com/file/crackwatch-temp/zklflylw1.jpg" title="Game name" /></a></li>
+                </ul>}
+                {/* {games.map(game => (    
+                        <li>
+                            <a href={game.url}><img src={game.imagePoster} title={game.title} /></a>
+                        </li>
+                ))} */}
             </div>
             <div className="footer">
                 <p>@pablohariel</p>

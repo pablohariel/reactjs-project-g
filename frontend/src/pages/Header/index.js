@@ -24,16 +24,14 @@ export default function Header() {
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">About</a></li>
                 </ul>) :
+                // burger menu
                 <ul className="header-links-mobile">
                     <img src={Logo} />
                     <Menu right>
-                        <a className="menu-item" href="/">
-                            Home
-                        </a>
-
-                        <a className="menu-item" href="/burgers">
-                            Burgers
-                        </a>
+                        <a className="menu-item" href="/">Home</a>
+                        <a className="menu-item" href="/games">Game</a>
+                        <a className="menu-item" href="/contact">Contact</a>
+                        <a className="menu-item" href="/about">About</a>
                     </Menu>
                 </ul>
             }

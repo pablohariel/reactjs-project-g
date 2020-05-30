@@ -7,6 +7,7 @@ main {
     flex-direction: column;
     background-image: url('../../assets/background_img.png');
     background-repeat: no-repeat;
+    min-height: 100vh;
 }
 
 main .border-first {
@@ -78,4 +79,67 @@ main .border-first .search button:hover {
     align-content: center;
     color: #fff;
     align-items: center;
+}
+
+/* mobile */
+
+.border-first-mobile {
+    display: flex;
+    justify-content: space-between;
+    width: 72%;
+    border-bottom: 1px solid #000;
+    align-self: center;
+    margin-top: 220px;
+    margin-bottom: 20px;
+}
+
+main .border-first-mobile input {
+    border: none;
+    width: 80px;
+    background-color: transparent;
+}
+
+main .border-first-mobile .search {
+    display: flex;
+}
+
+main .border-first-mobile .search button {
+    border: none;
+    background-color: transparent;
+    padding: 2px;
+    transition: 0.2s;
+
+}
+
+main .border-first-mobile .search button:hover {
+    color: rgb(150, 150, 150);
+}
+
+
+.games-container-mobile {
+    width: 72%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+}
+
+.games-container-mobile ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.games-container-mobile ul li {
+    margin: 10px;
+    width: 250px;
+}
+
+.games-container-mobile ul li:hover {
+    opacity: 0.9;
+}
+
+.games-container-mobile ul li img{
+    width: 100%;
 }
