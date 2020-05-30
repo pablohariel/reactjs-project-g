@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { FiSearch } from 'react-icons/fi';
 
 import Header from '../Header';
@@ -8,6 +9,11 @@ import './styles.css';
 
 export default function GameList() {
     const [games, setGames] = useState([]);
+
+    const isDesktopOrLaptop = useMediaQuery({ query: '(min-device-width: 1224px)' });
+    const isBigScreen = useMediaQuery({ query: '(min-device-width: 1824px)' });
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+    const isTabletOrMobileDevice = useMediaQuery({ query: '(max-device-width: 1224px)' });
     
     useEffect(() => {
         const filteredGames = [];
